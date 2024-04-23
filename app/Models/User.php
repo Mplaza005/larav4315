@@ -42,4 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+      //  Relacion Uno A Uno
+      public function profile(){
+        $profile = Profile::where('user_id',$this->id)->first();
+       return $this->hasOne('App\Models\Profile'); 
+   }
+
+
+
 }
